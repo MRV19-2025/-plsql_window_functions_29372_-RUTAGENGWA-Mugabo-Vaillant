@@ -111,7 +111,7 @@ INNER JOIN products p ON t.product_id = p.product_id
 ORDER BY t.transaction_date DESC;
 ```
 
-**Screenshot:** `screenshots/01_inner_join.png`
+**Screenshot:** ![image alt](https://github.com/MRV19-2025/-plsql_window_functions_29372_-RUTAGENGWA-Mugabo-Vaillant/blob/main/inner%20join.png?raw=true)
 
 **Business Interpretation:**  
 This query successfully retrieved all 15 valid transactions with complete customer and product information. The results show that Kigali region customers (5 customers) account for the majority of high-value transactions, particularly in the Instruments category. The INNER JOIN ensures we only see transactions where both customer and product data are present and valid, providing a clean dataset for revenue analysis. This forms the foundation for sales reporting and commission calculations.
@@ -135,8 +135,7 @@ GROUP BY c.customer_id, c.customer_name, c.email, c.region, c.registration_date
 HAVING transaction_count = 0;
 ```
 
-**Screenshot:** `screenshots/02_left_join.png`
-
+**Screenshot:** ![image alt](https://github.com/MRV19-2025/-plsql_window_functions_29372_-RUTAGENGWA-Mugabo-Vaillant/blob/main/left%20join.png?raw=true)
 **Business Interpretation:**  
 The LEFT JOIN identified 3 inactive customers: David Johnson (Southern), Carlos Rodriguez (Eastern), and Sophie Martin (Western). These customers registered between January and April 2024 but never completed a purchase, representing approximately 20% of the customer base. This is a critical marketing opportunity—these leads are warm but unconverted. Recommended actions include personalized email campaigns with first-purchase discounts and follow-up calls to understand barriers to purchase. The total_spent = $0 for these customers represents lost revenue potential of at least $2,400-$3,000 based on average customer value.
 
@@ -159,7 +158,7 @@ GROUP BY p.product_id, p.product_name, p.category, p.unit_price, p.stock_quantit
 HAVING times_sold = 0;
 ```
 
-**Screenshot:** `screenshots/03_right_join.png`
+**Screenshot:** ![image alt](https://github.com/MRV19-2025/-plsql_window_functions_29372_-RUTAGENGWA-Mugabo-Vaillant/blob/main/right%20join.png?raw=true)
 
 **Business Interpretation:**  
 The RIGHT JOIN revealed 2 products with zero sales: "Beyoncé - Renaissance CD" ($15) and "Premium Guitar Stand" ($45). Interestingly, both products have 0 stock quantity, which explains the lack of sales. This highlights an inventory management issue—products are listed but unavailable. The business should either restock these items if there's anticipated demand or remove them from active listings to avoid customer disappointment. The zero stock may also indicate strong past sales that depleted inventory, warranting immediate restocking analysis.
@@ -187,7 +186,7 @@ LEFT JOIN transactions t ON t.product_id = p.product_id
 GROUP BY p.product_id, p.product_name;
 ```
 
-**Screenshot:** `screenshots/04_full_outer_join.png`
+**Screenshot:** ![image alt](https://github.com/MRV19-2025/-plsql_window_functions_29372_-RUTAGENGWA-Mugabo-Vaillant/blob/main/full%20join.png)
 
 **Business Interpretation:**  
 This comprehensive view displays all 30 business entities (15 customers + 15 products) with their activity levels, including those with zero transactions. The analysis reveals a classic 80/20 distribution: 80% of customers (12 out of 15) have made purchases, while 87% of products (13 out of 15) have generated sales. This FULL OUTER JOIN simulation provides executive leadership with a complete business snapshot, highlighting both performing and non-performing assets. The gap between active (80%) and inactive (20%) entities suggests good overall engagement but room for improvement through targeted activation campaigns.
@@ -211,7 +210,7 @@ WHERE c1.region = 'Kigali'
 ORDER BY spending_difference DESC;
 ```
 
-**Screenshot:** `screenshots/05_self_join.png`
+**Screenshot:** ![image alt](https://github.com/MRV19-2025/-plsql_window_functions_29372_-RUTAGENGWA-Mugabo-Vaillant/blob/main/self%20join.png)
 
 **Business Interpretation:**  
 The SELF JOIN analysis within Kigali region (5 customers) reveals significant spending disparities. Pierre Dupont ($2,100 VIP) spends 4.6x more than John Smith ($450), with a $1,650 difference. This variance suggests different customer lifecycles and product affinities. Lisa Chen ($1,250 VIP) and Robert Taylor ($920) represent mid-tier opportunities for VIP conversion. The comparison helps identify "best practices" from high spenders—what products did Pierre buy? What marketing channels did he respond to? Replicating Pierre's journey could elevate other Kigali customers, potentially adding $5,000-$8,000 in regional revenue.
@@ -238,8 +237,7 @@ WHERE total_spent > 0
 ORDER BY total_spent DESC;
 ```
 
-**Screenshot:** `screenshots/06_ranking_functions.png`
-
+**Screenshot:** ![image alt](https://github.com/MRV19-2025/-plsql_window_functions_29372_-RUTAGENGWA-Mugabo-Vaillant/blob/main/query%201.png)
 **Business Interpretation:**  
 The ranking analysis identified clear customer tiers. Pierre Dupont (Rank 1, 100th percentile) leads with $2,100 spent, followed by Thomas Anderson ($1,680, Rank 2) and Michael Lee ($1,450, Rank 3). These top 3 customers alone contribute 52.86% of total revenue ($5,230 out of $9,760), demonstrating severe revenue concentration. The PERCENT_RANK shows that being in the top 25% (3 customers) requires spending at least $1,450. This segmentation directly informs VIP program qualification thresholds and helps prioritize customer success resources toward protecting high-value relationships.
 
@@ -265,7 +263,7 @@ FROM transactions
 GROUP BY DATE_FORMAT(transaction_date, '%Y-%m');
 ```
 
-**Screenshot:** `screenshots/07_aggregate_windows.png`
+**Screenshot:** ![image alt](https://github.com/MRV19-2025/-plsql_window_functions_29372_-RUTAGENGWA-Mugabo-Vaillant/blob/main/query%202.png)
 
 **Business Interpretation:**  
 The cumulative analysis shows strong business growth trajectory. Monthly revenue progressed: October ($99) → November ($1,568, +1,484%) → December ($3,449, +120%) → January ($1,160, -66%). The running total reached $6,276 by January 2025. The 2-month moving average smooths the volatility, showing average monthly revenue of $833.50 (Oct-Nov), $2,508.50 (Nov-Dec), and $2,304.50 (Dec-Jan). The January decline is concerning but may reflect post-holiday seasonality. The moving average suggests sustainable monthly revenue around $2,000-$2,500, informing cash flow projections and inventory budgets.
@@ -297,7 +295,7 @@ FROM (
 ) AS monthly_data;
 ```
 
-**Screenshot:** `screenshots/08_lag_lead_functions.png`
+**Screenshot:** ![image alt](https://github.com/MRV19-2025/-plsql_window_functions_29372_-RUTAGENGWA-Mugabo-Vaillant/blob/main/query3.png)
 
 **Business Interpretation:**  
 The LAG function enabled precise growth rate calculations. November's 1,484% growth from October represents the business launch phase. December's 120% growth maintained strong momentum. However, January's -66% decline signals a critical inflection point. This pattern suggests heavy dependence on holiday shopping (November-December), with post-holiday drop-off. The LEAD function (forward-looking) would help forecast February trends. Strategic recommendations include implementing retention campaigns in January, launching Valentine's Day promotions, and diversifying revenue streams to reduce seasonal dependency.
@@ -326,7 +324,7 @@ WHERE total_spent > 0
 ORDER BY total_spent DESC;
 ```
 
-**Screenshot:** `screenshots/09_ntile_distribution.png`
+**Screenshot:** ![image alt](https://github.com/MRV19-2025/-plsql_window_functions_29372_-RUTAGENGWA-Mugabo-Vaillant/blob/main/query4.png)
 
 **Business Interpretation:**  
 NTILE segmentation divided 12 active customers into four equal groups of 3 customers each. **Q1 Premium** ($1,450-$2,100) includes Pierre Dupont, Thomas Anderson, and Michael Lee—these require white-glove service and exclusive offers. **Q2 High Value** ($780-$920) includes Lisa Chen, Emily Brown, and Robert Taylor—prime upsell candidates for VIP conversion. **Q3 Medium Value** ($450-$670) includes Sarah Williams, Anna Kowalski, and Maria Garcia—nurture with loyalty programs. **Q4 Growth Potential** ($320-$340) includes Ahmed Hassan, Jennifer White, and John Smith—engage with educational content and starter promotions. This 4-tier framework enables precise marketing automation and budget allocation.
