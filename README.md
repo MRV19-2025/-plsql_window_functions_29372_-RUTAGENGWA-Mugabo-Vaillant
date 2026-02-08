@@ -70,9 +70,7 @@ Through SQL analysis using JOINs and Window Functions, management expects to:
 ### ERD
 
 ```
-
-
-<img width="530" height="365" alt="ERD" src="https://github.com/user-attachments/assets/2a7679a5-ac1f-4b4d-8c89-ae8b6627ac86" />
+![Image Alt](<img width="1060" height="729" alt="image" src="https://github.com/user-attachments/assets/5527900b-b134-40ae-bf5d-cbcbb27ae29a" />)
 
 ```
 
